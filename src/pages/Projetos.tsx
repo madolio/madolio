@@ -1,3 +1,4 @@
+import Reveal from '../components/Reveal'
 import SiteMock from '../components/SiteMock'
 
 const cases = [
@@ -40,18 +41,20 @@ export default function Projetos() {
   return (
     <section className="pt-32 pb-20 md:pt-40 md:pb-28">
       <div className="mx-auto max-w-6xl px-6">
-        <span className="inline-flex items-center rounded-full border border-line bg-surface-alt px-4 py-1.5 text-sm font-medium text-ink/70">
-          Projetos
-        </span>
-        <h1 className="mt-6 text-4xl font-extrabold leading-tight text-ink md:text-5xl">
-          Alguns sites que já criei
-        </h1>
-        <p className="mt-4 max-w-2xl text-lg text-ink/70">
-          Exemplos de como um site simples e bem feito pode representar
-          negócios diferentes — do jeito de cada um.
-        </p>
+        <Reveal>
+          <span className="inline-flex items-center rounded-full border border-line bg-surface-alt px-4 py-1.5 text-sm font-medium text-ink/70">
+            Projetos
+          </span>
+          <h1 className="mt-6 text-4xl font-extrabold leading-tight text-ink md:text-5xl">
+            Alguns sites que já criei
+          </h1>
+          <p className="mt-4 max-w-2xl text-lg text-ink/70">
+            Exemplos de como um site simples e bem feito pode representar
+            negócios diferentes — do jeito de cada um.
+          </p>
+        </Reveal>
 
-        <div className="mt-12 grid gap-8 sm:grid-cols-2">
+        <Reveal stagger={0.1} className="mt-12 grid gap-8 sm:grid-cols-2">
           {cases.map((project) => {
             const Wrapper = project.url ? 'a' : 'div'
             return (
@@ -60,7 +63,7 @@ export default function Projetos() {
                 {...(project.url
                   ? { href: project.url, target: '_blank', rel: 'noreferrer' }
                   : {})}
-                className="group overflow-hidden rounded-2xl border border-line transition hover:border-accent"
+                className="group overflow-hidden rounded-2xl border border-line transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-lg hover:shadow-accent/10"
               >
                 <SiteMock bg={project.bg} accent={project.accent} framed={false} />
                 <div className="p-6">
@@ -83,7 +86,7 @@ export default function Projetos() {
               </Wrapper>
             )
           })}
-        </div>
+        </Reveal>
       </div>
     </section>
   )

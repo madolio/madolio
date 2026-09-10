@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import Reveal from './Reveal'
 
 type Benefit = {
   title: string
@@ -64,17 +65,22 @@ export default function Benefits() {
   return (
     <section id="beneficios" className="scroll-mt-20 bg-surface-alt py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
-        <h2 className="text-3xl font-extrabold text-ink md:text-4xl">
-          Tudo que seu site precisa ter
-        </h2>
+        <Reveal>
+          <h2 className="text-3xl font-extrabold text-ink md:text-4xl">
+            Tudo que seu site precisa ter
+          </h2>
+        </Reveal>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <Reveal
+          stagger={0.1}
+          className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4"
+        >
           {benefits.map((benefit) => (
             <div
               key={benefit.title}
-              className="rounded-2xl border border-line bg-white p-6"
+              className="group rounded-2xl border border-line bg-white p-6 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg hover:shadow-accent/10"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 text-accent transition duration-300 group-hover:scale-110 group-hover:bg-accent group-hover:text-white">
                 {benefit.icon}
               </div>
               <h3 className="mt-4 text-lg font-extrabold text-ink">
@@ -83,7 +89,7 @@ export default function Benefits() {
               <p className="mt-2 text-sm text-ink/60">{benefit.description}</p>
             </div>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   )
