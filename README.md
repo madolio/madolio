@@ -18,3 +18,5 @@ npm run build
 ```
 
 Deploy contínuo configurado na Netlify: qualquer push na branch `main` gera um novo deploy em [madolio.com.br](https://madolio.com.br).
+
+Deploy automatico configurado via Netlify + GitHub.
