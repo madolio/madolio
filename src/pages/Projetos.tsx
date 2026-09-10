@@ -18,12 +18,13 @@ const cases = [
     accent: '#4F9D77',
   },
   {
-    name: 'Nômade Store',
-    category: 'Moda',
+    name: 'NBJ Systems',
+    category: 'Equipamentos para tratamento de água',
     description:
-      'Vitrine da coleção com fotos em destaque, lookbook e link direto pro Instagram da loja.',
-    bg: '#EDE7DE',
-    accent: '#1F1F1F',
+      'Redesign completo do site institucional: apresentação da empresa, setores atendidos e linha de produtos, com contato direto por WhatsApp.',
+    bg: '#DCEFFB',
+    accent: '#0E8FB2',
+    url: 'https://nbj-systems.netlify.app',
   },
   {
     name: 'Sabor da Vila',
@@ -51,23 +52,37 @@ export default function Projetos() {
         </p>
 
         <div className="mt-12 grid gap-8 sm:grid-cols-2">
-          {cases.map((project) => (
-            <div
-              key={project.name}
-              className="overflow-hidden rounded-2xl border border-line"
-            >
-              <SiteMock bg={project.bg} accent={project.accent} framed={false} />
-              <div className="p-6">
-                <span className="text-xs font-semibold uppercase tracking-wide text-accent">
-                  {project.category}
-                </span>
-                <h3 className="mt-2 text-xl font-extrabold text-ink">
-                  {project.name}
-                </h3>
-                <p className="mt-2 text-sm text-ink/60">{project.description}</p>
-              </div>
-            </div>
-          ))}
+          {cases.map((project) => {
+            const Wrapper = project.url ? 'a' : 'div'
+            return (
+              <Wrapper
+                key={project.name}
+                {...(project.url
+                  ? { href: project.url, target: '_blank', rel: 'noreferrer' }
+                  : {})}
+                className="group overflow-hidden rounded-2xl border border-line transition hover:border-accent"
+              >
+                <SiteMock bg={project.bg} accent={project.accent} framed={false} />
+                <div className="p-6">
+                  <span className="text-xs font-semibold uppercase tracking-wide text-accent">
+                    {project.category}
+                  </span>
+                  <h3 className="mt-2 text-xl font-extrabold text-ink">
+                    {project.name}
+                  </h3>
+                  <p className="mt-2 text-sm text-ink/60">{project.description}</p>
+                  {project.url && (
+                    <span className="mt-3 inline-flex items-center text-sm font-semibold text-accent">
+                      Ver site
+                      <span className="ml-1 transition group-hover:translate-x-0.5">
+                        →
+                      </span>
+                    </span>
+                  )}
+                </div>
+              </Wrapper>
+            )
+          })}
         </div>
       </div>
     </section>
