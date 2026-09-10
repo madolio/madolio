@@ -10,7 +10,7 @@ export default function Layout() {
     if (hash) {
       const el = document.querySelector(hash)
       if (el) {
-        setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 50)
+        requestAnimationFrame(() => el.scrollIntoView({ behavior: 'smooth' }))
         return
       }
     }

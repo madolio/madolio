@@ -23,12 +23,12 @@ export default function Nav() {
           >
             Projetos
           </Link>
-          <a
-            href="/#beneficios"
+          <Link
+            to="/#beneficios"
             className="text-sm font-medium text-ink/70 transition hover:text-ink"
           >
             Benefícios
-          </a>
+          </Link>
         </nav>
 
         <div className="flex items-center gap-3">
@@ -71,13 +71,13 @@ export default function Nav() {
           >
             Projetos
           </Link>
-          <a
-            href="/#beneficios"
+          <Link
+            to="/#beneficios"
             onClick={() => setOpen(false)}
             className="py-2 text-sm font-medium text-ink/70 transition hover:text-ink"
           >
             Benefícios
-          </a>
+          </Link>
         </nav>
       )}
     </header>

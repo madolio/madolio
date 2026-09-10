@@ -62,7 +62,7 @@ const benefits: Benefit[] = [
 
 export default function Benefits() {
   return (
-    <section id="beneficios" className="bg-surface-alt py-20 md:py-28">
+    <section id="beneficios" className="scroll-mt-20 bg-surface-alt py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-6">
         <h2 className="text-3xl font-extrabold text-ink md:text-4xl">
           Tudo que seu site precisa ter
