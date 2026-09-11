@@ -34,22 +34,21 @@ export default function Hero() {
             </div>
           </Reveal>
 
-          <dl>
-            <Reveal
-              stagger={0.1}
-              delay={0.2}
-              className="mt-12 grid grid-cols-3 gap-6 border-t border-line pt-8"
-            >
-              {stats.map((stat) => (
-                <div key={stat.value}>
-                  <dt className="font-heading text-xl font-medium text-ink md:text-2xl">
-                    {stat.value}
-                  </dt>
-                  <dd className="mt-1 text-sm text-ink/60">{stat.label}</dd>
-                </div>
-              ))}
-            </Reveal>
-          </dl>
+          <Reveal
+            as="dl"
+            stagger={0.1}
+            delay={0.2}
+            className="mt-12 grid grid-cols-3 gap-6 border-t border-line pt-8"
+          >
+            {stats.map((stat) => (
+              <div key={stat.value}>
+                <dt className="font-heading text-xl font-medium text-ink md:text-2xl">
+                  {stat.value}
+                </dt>
+                <dd className="mt-1 text-sm text-ink/70">{stat.label}</dd>
+              </div>
+            ))}
+          </Reveal>
         </div>
 
         <SketchToSite />

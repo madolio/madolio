@@ -1,4 +1,4 @@
-import { useRef, type ReactNode } from 'react'
+import { useRef, type ElementType, type ReactNode } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
@@ -11,6 +11,9 @@ type RevealProps = {
   delay?: number
   y?: number
   stagger?: number
+  /** Tag do wrapper — use quando o filho precisa ser um elemento semântico
+   * específico (ex: `dl`), pra não quebrar a estrutura exigida pelo pai. */
+  as?: ElementType
 }
 
 export default function Reveal({
@@ -19,8 +22,9 @@ export default function Reveal({
   delay = 0,
   y = 24,
   stagger,
+  as: Tag = 'div',
 }: RevealProps) {
-  const ref = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLElement>(null)
 
   useGSAP(
     () => {
@@ -49,8 +53,8 @@ export default function Reveal({
   )
 
   return (
-    <div ref={ref} className={className}>
+    <Tag ref={ref} className={className}>
       {children}
-    </div>
+    </Tag>
   )
 }
