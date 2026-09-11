@@ -1,4 +1,5 @@
 import Reveal from '../components/Reveal'
+import Seo from '../components/Seo'
 import SiteMock from '../components/SiteMock'
 
 const cases = [
@@ -41,6 +42,11 @@ const cases = [
 export default function Projetos() {
   return (
     <section className="pt-32 pb-20 md:pt-40 md:pb-28">
+      <Seo
+        title="Projetos — Sites reais e conceitos | Madolio"
+        description="Veja o redesign do site institucional da NBJ Systems e conceitos de sites para confeitaria, pilates e hamburgueria — exemplos do que a Madolio pode criar pro seu negócio."
+        path="/projetos"
+      />
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <h1 className="max-w-xl text-4xl font-semibold leading-tight text-ink md:text-5xl">
