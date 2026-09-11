@@ -3,6 +3,16 @@ import SiteMock from '../components/SiteMock'
 
 const cases = [
   {
+    name: 'NBJ Systems',
+    category: 'Equipamentos para tratamento de água',
+    description:
+      'Redesign completo do site institucional: apresentação da empresa, setores atendidos e linha de produtos, com contato direto por WhatsApp.',
+    bg: '#DCEFFB',
+    accent: '#0E8FB2',
+    url: 'https://nbj-systems.netlify.app',
+    real: true,
+  },
+  {
     name: 'Doce Ateliê',
     category: 'Confeitaria',
     description:
@@ -17,15 +27,6 @@ const cases = [
       'Página de aulas e turmas com apresentação da instrutora e agendamento de experimental pelo WhatsApp.',
     bg: '#DCEFE3',
     accent: '#4F9D77',
-  },
-  {
-    name: 'NBJ Systems',
-    category: 'Equipamentos para tratamento de água',
-    description:
-      'Redesign completo do site institucional: apresentação da empresa, setores atendidos e linha de produtos, com contato direto por WhatsApp.',
-    bg: '#DCEFFB',
-    accent: '#0E8FB2',
-    url: 'https://nbj-systems.netlify.app',
   },
   {
     name: 'Sabor da Vila',
@@ -43,11 +44,12 @@ export default function Projetos() {
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <h1 className="max-w-xl text-4xl font-semibold leading-tight text-ink md:text-5xl">
-            Alguns sites que já criei
+            O que eu posso criar pro seu negócio
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-ink/70">
-            Exemplos de como um site simples e bem feito pode representar
-            negócios diferentes — do jeito de cada um.
+            A NBJ Systems é um cliente real. Os outros três são conceitos —
+            mostram como um site simples e bem feito pode representar
+            negócios diferentes, do jeito de cada um.
           </p>
         </Reveal>
 
@@ -64,9 +66,11 @@ export default function Projetos() {
               >
                 <SiteMock bg={project.bg} accent={project.accent} />
                 <div className="mt-5">
-                  <div className="flex items-baseline justify-between gap-4">
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                     <h3 className="text-xl font-semibold text-ink">{project.name}</h3>
-                    <span className="text-sm text-ink/50">{project.category}</span>
+                    <span className="text-sm text-ink/50">
+                      {project.category} · {project.real ? 'cliente real' : 'conceito'}
+                    </span>
                   </div>
                   <p className="mt-2 text-ink/65">{project.description}</p>
                   {project.url && (

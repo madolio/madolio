@@ -42,7 +42,7 @@ export default function Nav() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noreferrer"
-            className="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-accent-hover"
+            className="hidden rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-accent-hover sm:inline-block"
           >
             Peça orçamento
           </a>
@@ -91,6 +91,14 @@ export default function Nav() {
           >
             Contato
           </Link>
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-2 rounded-full bg-accent px-5 py-2.5 text-center text-sm font-semibold text-white"
+          >
+            Peça orçamento
+          </a>
         </nav>
       )}
     </header>
