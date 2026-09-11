@@ -1,6 +1,7 @@
 import { EMAIL_HREF, WHATSAPP_URL } from '../constants'
 import Reveal from './Reveal'
 import Scene3DLazy from './Scene3DLazy'
+import ShimmerText from './ShimmerText'
 import SketchToSite from './SketchToSite'
 
 const stats = [
@@ -28,7 +29,7 @@ export default function Hero() {
         <div>
           <Reveal>
             <h1 className="text-4xl font-semibold leading-[1.08] text-ink md:text-5xl">
-              Um site que parece feito à mão pro seu negócio — porque é.
+              <ShimmerText>Um site que parece feito à mão pro seu negócio — porque é.</ShimmerText>
             </h1>
 
             <p className="mt-6 text-lg text-ink/70">
