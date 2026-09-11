@@ -1,7 +1,6 @@
 import Benefits from '../components/Benefits'
 import Hero from '../components/Hero'
 import Seo from '../components/Seo'
-import Showcase3D from '../components/Showcase3D'
 
 export default function Home() {
   return (
@@ -12,7 +11,6 @@ export default function Home() {
         path="/"
       />
       <Hero />
-      <Showcase3D />
       <Benefits />
     </>
   )

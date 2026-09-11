@@ -1,5 +1,6 @@
 import { EMAIL_HREF, WHATSAPP_URL } from '../constants'
 import Reveal from './Reveal'
+import Scene3DLazy from './Scene3DLazy'
 import SketchToSite from './SketchToSite'
 
 const stats = [
@@ -10,8 +11,20 @@ const stats = [
 
 export default function Hero() {
   return (
-    <section className="overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
-      <div className="mx-auto grid max-w-6xl items-center gap-16 px-6 md:grid-cols-2">
+    <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
+      <Scene3DLazy
+        className="pointer-events-none absolute inset-0"
+        particleColor="#1d4fd1"
+        particleCount={280}
+        particleOpacity={0.3}
+        particleSize={0.045}
+        minRadius={3.2}
+        maxRadius={6.5}
+        cameraDistance={6}
+        showGlow={false}
+      />
+
+      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-16 px-6 md:grid-cols-2">
         <div>
           <Reveal>
             <h1 className="text-4xl font-semibold leading-[1.08] text-ink md:text-5xl">
