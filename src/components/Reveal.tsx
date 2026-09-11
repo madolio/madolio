@@ -1,4 +1,4 @@
-import { useRef, type ElementType, type ReactNode } from 'react'
+import { createElement, useRef, type ElementType, type ReactNode } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
@@ -52,9 +52,5 @@ export default function Reveal({
     { scope: ref, dependencies: [delay, y, stagger] },
   )
 
-  return (
-    <Tag ref={ref} className={className}>
-      {children}
-    </Tag>
-  )
+  return createElement(Tag, { ref, className }, children)
 }
