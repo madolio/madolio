@@ -37,6 +37,15 @@ const cases = [
     bg: '#FBE3D3',
     accent: '#E2632F',
   },
+  {
+    name: 'Site Modelo',
+    category: 'Modelo padrão Madolio',
+    description:
+      'O template que uso como ponto de partida pra cada cliente novo: hero com identidade visual própria, seção de benefícios e contato direto — pronto pra ganhar a cara do seu negócio.',
+    bg: '#EDEDF0',
+    accent: '#2F6FED',
+    url: 'https://site-template.fenoninho-max.workers.dev',
+  },
 ]
 
 export default function Projetos() {
@@ -53,9 +62,9 @@ export default function Projetos() {
             O que eu posso criar pro seu negócio
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-ink/70">
-            A NBJ Systems é um cliente real. Os outros três são conceitos —
-            mostram como um site simples e bem feito pode representar
-            negócios diferentes, do jeito de cada um.
+            A NBJ Systems é um cliente real. Os conceitos mostram como um
+            site simples e bem feito pode representar negócios diferentes,
+            e o Site Modelo é o template que dá origem a cada um deles.
           </p>
         </Reveal>
 
