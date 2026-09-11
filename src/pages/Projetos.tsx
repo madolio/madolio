@@ -9,7 +9,7 @@ const cases = [
       'Redesign completo do site institucional: apresentação da empresa, setores atendidos e linha de produtos, com contato direto por WhatsApp.',
     bg: '#DCEFFB',
     accent: '#0E8FB2',
-    url: 'https://nbj-systems.netlify.app',
+    url: 'https://nbj-systems.fenoninho-max.workers.dev',
     real: true,
   },
   {

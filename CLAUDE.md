@@ -1,6 +1,21 @@
 # Madolio
 
-Landing page da Madolio (serviço de criação de sites pra pequenos negócios). Vite + React + TypeScript + Tailwind v4. Deploy automático via Netlify a cada push em `main` (madolio.com.br).
+Landing page da Madolio (serviço de criação de sites pra pequenos negócios). Vite + React + TypeScript + Tailwind v4.
+
+## Deploy (Cloudflare Workers — desde 11/set/2026)
+
+Migrou do Netlify pro Cloudflare Workers (assets estáticos) no mesmo dia. **Não há mais deploy automático em push** — cada mudança precisa de um deploy manual:
+
+```
+npm run build
+npx wrangler deploy
+```
+
+`wrangler.toml` já aponta pro Worker existente chamado `madolio` (mesmo nome, `[assets] directory = "./dist"`, `not_found_handling = "single-page-application"` pra rotas do react-router funcionarem). O domínio `madolio.com.br` está vinculado a esse Worker (Custom Domain no Cloudflare) — não precisa tocar em DNS pra deploys normais. Sem esse domínio, a URL seria `https://madolio.fenoninho-max.workers.dev`.
+
+Autenticação: `wrangler login` já foi feito nesta máquina (token OAuth salvo em `~/.wrangler`, conta `fenoninho.max@gmail.com`). Se expirar, roda `wrangler login` de novo (abre navegador).
+
+O `netlify.toml` ainda existe no repo (resquício da hospedagem antiga) — não é mais usado pra nada, mas não faz mal manter por enquanto. O site antigo na Netlify pode ainda estar no ar (não foi apagado); não é a fonte de verdade.
 
 ## Diretrizes de design
 

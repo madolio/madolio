@@ -1,0 +1,7 @@
+name = "madolio"
+compatibility_date = "2026-09-11"
+account_id = "4af4ee07f6c53c48d1c17e444d2ab432"
+
+[assets]
+directory = "./dist"
+not_found_handling = "single-page-application"
