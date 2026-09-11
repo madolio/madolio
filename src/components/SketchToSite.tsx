@@ -80,7 +80,7 @@ export default function SketchToSite() {
         <g data-cursor>
           <circle data-publish-ring cx="78" cy="293" r="15" fill="none" stroke="#1D4FD1" strokeWidth="2" />
           <path
-            d="M64,283 L64,304 L71,299 L75,307 L79,305 L75,297 L83,297 Z"
+            d="M78,293 L78,314 L85,309 L89,317 L93,315 L89,307 L97,307 Z"
             fill="#0f1c33"
             stroke="#f7f9fc"
             strokeWidth="1"
