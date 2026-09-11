@@ -38,7 +38,14 @@ export default function Showcase3D() {
           </p>
         </Reveal>
 
-        <div ref={containerRef} className="h-72 w-full sm:h-80 md:h-96">
+        <div
+          ref={containerRef}
+          className="h-72 w-full sm:h-80 md:h-96"
+          style={{
+            maskImage: 'radial-gradient(closest-side, black 65%, transparent 100%)',
+            WebkitMaskImage: 'radial-gradient(closest-side, black 65%, transparent 100%)',
+          }}
+        >
           {shouldLoad && (
             <Suspense fallback={null}>
               <Scene3D />
