@@ -1,28 +1,55 @@
-import { Suspense, useRef } from 'react'
+import { Suspense, useMemo, useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import type { Mesh } from 'three'
+import {
+  BoxGeometry,
+  EdgesGeometry,
+  IcosahedronGeometry,
+  OctahedronGeometry,
+  TetrahedronGeometry,
+  type BufferGeometry,
+  type Group,
+} from 'three'
 import type { IconShape } from './iconShapes'
 
+function baseGeometryFor(shape: IconShape): BufferGeometry {
+  switch (shape) {
+    case 'box':
+      return new BoxGeometry(1.3, 1.3, 1.3)
+    case 'tetrahedron':
+      return new TetrahedronGeometry(1.2, 0)
+    case 'octahedron':
+      return new OctahedronGeometry(1, 0)
+    case 'icosahedron':
+      return new IcosahedronGeometry(1, 0)
+  }
+}
+
 function Shape({ shape }: { shape: IconShape }) {
-  const mesh = useRef<Mesh>(null)
+  const group = useRef<Group>(null)
   const reducedMotion =
     typeof window !== 'undefined' &&
     window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
   useFrame((_, delta) => {
-    if (reducedMotion || !mesh.current) return
-    mesh.current.rotation.x += delta * 0.35
-    mesh.current.rotation.y += delta * 0.5
+    if (reducedMotion || !group.current) return
+    group.current.rotation.x += delta * 0.3
+    group.current.rotation.y += delta * 0.42
   })
 
+  const [baseGeometry, edgesGeometry] = useMemo(() => {
+    const base = baseGeometryFor(shape)
+    return [base, new EdgesGeometry(base)]
+  }, [shape])
+
   return (
-    <mesh ref={mesh}>
-      {shape === 'octahedron' && <octahedronGeometry args={[1, 0]} />}
-      {shape === 'box' && <boxGeometry args={[1.3, 1.3, 1.3]} />}
-      {shape === 'tetrahedron' && <tetrahedronGeometry args={[1.2, 0]} />}
-      {shape === 'icosahedron' && <icosahedronGeometry args={[1, 0]} />}
-      <meshStandardMaterial color="#1d4fd1" roughness={0.3} metalness={0.4} />
-    </mesh>
+    <group ref={group}>
+      <mesh geometry={baseGeometry}>
+        <meshBasicMaterial color="#1d4fd1" transparent opacity={0.06} />
+      </mesh>
+      <lineSegments geometry={edgesGeometry}>
+        <lineBasicMaterial color="#1d4fd1" transparent opacity={0.85} />
+      </lineSegments>
+    </group>
   )
 }
 
@@ -30,8 +57,6 @@ export default function IconScene({ shape }: { shape: IconShape }) {
   return (
     <Canvas dpr={[1, 1.5]} camera={{ position: [0, 0, 3], fov: 40 }} gl={{ alpha: true }}>
       <Suspense fallback={null}>
-        <ambientLight intensity={0.7} />
-        <pointLight position={[2, 2, 2]} intensity={20} />
         <Shape shape={shape} />
       </Suspense>
     </Canvas>
