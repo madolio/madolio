@@ -9,7 +9,17 @@ O usuário já deu feedback de que o visual "hand-rolled Tailwind" (card arredon
 - Não repetir a fórmula card+badge+gradiente-liso em toda seção nova. Variar a composição.
 - Preferir componentes reais de bibliotecas (shadcn/ui, Aceternity UI, Magic UI, HeroUI) a inventar divs com classes soltas, quando fizer sentido para o projeto.
 - Motion de verdade (GSAP, Motion) em vez de seções estáticas — mas ver a gotcha abaixo antes de usar GSAP com Tailwind.
-- Para CTAs/faixas de destaque: preferir fundo com profundidade (glow radial, grid de pontos, etc.) em vez de gradiente linear liso — ver `src/components/CTA.tsx` para um exemplo já aplicado.
+
+Redesign de set/2026 (2ª passada, pós-catálogo `design-resources`): trocou Sora/Inter + azul corporativo + CTA em gradiente+glow pelo seguinte, para fugir de vez do kit genérico de SaaS:
+
+- **Tipografia:** Fraunces (serifada, com eixo óptico/peso variável) para títulos + Inter pro corpo — combinação editorial, não o par sans+sans de dashboard.
+- **Paleta:** tons de papel/tinta (`--color-paper` #FAF7F0, `--color-ink` quase preto mas quente) em vez de branco puro + cinza frio; accent azul-violeta (`--color-accent` #3446C9), não terracota nem azul de SaaS genérico.
+- **Momento principal:** `src/components/SketchToSite.tsx` — a janela de navegador do Hero começa como rascunho desenhado à mão (linhas soltas, tortas) e se resolve num site colorido de verdade, com um cursor "publicando" no fim. Único motion "não pedido" do site — não espalhar fade-in a esmo em outras seções (Reveal já cobre isso com stagger sutil).
+- `src/components/Reveal.tsx` (usado em várias páginas) agora respeita `prefers-reduced-motion` via `gsap.matchMedia` — qualquer novo componente de motion deve seguir o mesmo padrão (ver gotcha abaixo).
+- **SiteMock:** virou um "recorte de papel" — borda grossa (`border-2 border-ink`) com sombra dura deslocada (`shadow-[6px_6px_0_0_...]`) em vez do `shadow-xl` suave genérico.
+- **Botões:** pill (`rounded-full`) em ambos os projetos-irmãos, mas cores/tom diferentes — o Madolio é o lado "pessoal/artesanal" da dupla; o `nbj-systems` (ver CLAUDE.md dele) é o lado "técnico/industrial" (Archivo, botões retos, diagrama de engenharia). Não convergir os dois visuais.
+- Contato/CTA virou parte do rodapé (`Footer.tsx`, fundo `ink`), sem `CTA.tsx` separado — mesmo padrão adotado no `nbj-systems`.
+- Existe um arquivo solto em `public/Gemini_Generated_Image_do52gjdo52gjdo52.jfif` não referenciado em nenhum componente — parece resquício de um teste anterior. Não foi removido por não ter sido criado nesta sessão; confirmar com o usuário antes de apagar.
 
 ## Gotcha: GSAP + Tailwind `transition` quebra animações de entrada
 

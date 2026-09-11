@@ -14,13 +14,15 @@ export default function SiteMock({
   return (
     <div
       className={`overflow-hidden bg-white ${
-        framed ? 'rounded-xl border border-line shadow-xl' : ''
+        framed
+          ? 'rounded-lg border-2 border-ink shadow-[6px_6px_0_0_rgba(29,27,24,0.12)]'
+          : 'rounded-lg border-2 border-ink'
       } ${className}`}
     >
-      <div className="flex items-center gap-1.5 border-b border-line bg-white px-3 py-2">
-        <span className="h-2.5 w-2.5 rounded-full bg-line" />
-        <span className="h-2.5 w-2.5 rounded-full bg-line" />
-        <span className="h-2.5 w-2.5 rounded-full bg-line" />
+      <div className="flex items-center gap-1.5 border-b-2 border-ink px-3 py-2">
+        <span className="h-2.5 w-2.5 rounded-full border border-ink/40" />
+        <span className="h-2.5 w-2.5 rounded-full border border-ink/40" />
+        <span className="h-2.5 w-2.5 rounded-full border border-ink/40" />
       </div>
       <div style={{ backgroundColor: bg }} className="p-4">
         <div style={{ backgroundColor: accent }} className="mb-3 h-8 w-2/3 rounded-md" />

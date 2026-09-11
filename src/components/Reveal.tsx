@@ -27,20 +27,22 @@ export default function Reveal({
       const el = ref.current
       if (!el) return
 
-      const targets = stagger ? gsap.utils.toArray(el.children) : el
+      gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
+        const targets = stagger ? gsap.utils.toArray(el.children) : el
 
-      gsap.from(targets, {
-        opacity: 0,
-        y,
-        duration: 0.7,
-        delay,
-        ease: 'power3.out',
-        stagger,
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 88%',
-          once: true,
-        },
+        gsap.from(targets, {
+          opacity: 0,
+          y,
+          duration: 0.7,
+          delay,
+          ease: 'power3.out',
+          stagger,
+          scrollTrigger: {
+            trigger: el,
+            start: 'top 88%',
+            once: true,
+          },
+        })
       })
     },
     { scope: ref, dependencies: [delay, y, stagger] },

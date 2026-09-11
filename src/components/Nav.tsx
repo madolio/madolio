@@ -6,7 +6,7 @@ export default function Nav() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-white/90 backdrop-blur">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-paper/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link
           to="/"
@@ -28,6 +28,12 @@ export default function Nav() {
             className="text-sm font-medium text-ink/70 transition hover:text-ink"
           >
             Benefícios
+          </Link>
+          <Link
+            to="/#contato"
+            className="text-sm font-medium text-ink/70 transition hover:text-ink"
+          >
+            Contato
           </Link>
         </nav>
 
@@ -77,6 +83,13 @@ export default function Nav() {
             className="py-2 text-sm font-medium text-ink/70 transition hover:text-ink"
           >
             Benefícios
+          </Link>
+          <Link
+            to="/#contato"
+            onClick={() => setOpen(false)}
+            className="py-2 text-sm font-medium text-ink/70 transition hover:text-ink"
+          >
+            Contato
           </Link>
         </nav>
       )}

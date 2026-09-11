@@ -42,10 +42,7 @@ export default function Projetos() {
     <section className="pt-32 pb-20 md:pt-40 md:pb-28">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
-          <span className="inline-flex items-center rounded-full border border-line bg-surface-alt px-4 py-1.5 text-sm font-medium text-ink/70">
-            Projetos
-          </span>
-          <h1 className="mt-6 text-4xl font-extrabold leading-tight text-ink md:text-5xl">
+          <h1 className="max-w-xl text-4xl font-semibold leading-tight text-ink md:text-5xl">
             Alguns sites que já criei
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-ink/70">
@@ -54,7 +51,7 @@ export default function Projetos() {
           </p>
         </Reveal>
 
-        <Reveal stagger={0.1} className="mt-12 grid gap-8 sm:grid-cols-2">
+        <Reveal stagger={0.1} className="mt-14 grid gap-10 sm:grid-cols-2">
           {cases.map((project) => {
             const Wrapper = project.url ? 'a' : 'div'
             return (
@@ -63,23 +60,18 @@ export default function Projetos() {
                 {...(project.url
                   ? { href: project.url, target: '_blank', rel: 'noreferrer' }
                   : {})}
-                className="group overflow-hidden rounded-2xl border border-line transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-lg hover:shadow-accent/10"
+                className="block"
               >
-                <SiteMock bg={project.bg} accent={project.accent} framed={false} />
-                <div className="p-6">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-accent">
-                    {project.category}
-                  </span>
-                  <h3 className="mt-2 text-xl font-extrabold text-ink">
-                    {project.name}
-                  </h3>
-                  <p className="mt-2 text-sm text-ink/60">{project.description}</p>
+                <SiteMock bg={project.bg} accent={project.accent} />
+                <div className="mt-5">
+                  <div className="flex items-baseline justify-between gap-4">
+                    <h3 className="text-xl font-semibold text-ink">{project.name}</h3>
+                    <span className="text-sm text-ink/50">{project.category}</span>
+                  </div>
+                  <p className="mt-2 text-ink/65">{project.description}</p>
                   {project.url && (
-                    <span className="mt-3 inline-flex items-center text-sm font-semibold text-accent">
+                    <span className="mt-3 inline-block font-semibold text-accent underline decoration-accent/30 underline-offset-4">
                       Ver site
-                      <span className="ml-1 transition group-hover:translate-x-0.5">
-                        →
-                      </span>
                     </span>
                   )}
                 </div>
